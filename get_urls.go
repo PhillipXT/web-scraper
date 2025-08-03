@@ -10,12 +10,7 @@ import (
 )
 
 // Added a package to make this work:  go get golang.org/x/net/html
-func getURLsFromHTML(htmlBody, rawBaseURL string) ([]string, error) {
-
-	baseURL, err := url.Parse(rawBaseURL)
-	if err != nil {
-		return nil, fmt.Errorf("couldn't parse base URL: %v", err)
-	}
+func getURLsFromHTML(htmlBody string, baseURL *url.URL) ([]string, error) {
 
 	var links []string
 
